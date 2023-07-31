@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>模拟报志愿</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link href="{{url_for('static',filename = '菜单.css')}}" rel="stylesheet" />
+    <link href="{{url_for('static',filename = 'bootstrap.css')}}" rel="stylesheet" />
+    <script src="{{url_for('static',filename = 'jquery-3.7.0.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'bootstrap.bundle.js')}}"></script>
+    <script>
+        function myFunction(){
+            alert("成功,您已经添加此专业");
+        }
+        </script>
+        
+</head>
+
+
+
+
+
+<body style="width: 100%;">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a href="/main">
+            <img src="{{url_for('static',filename = 'logo.png')}}" width="70px">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/main">首页</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/recommenduniv">查大学</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/recommendmajor">查专业</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/filter">模拟报志愿</a>
+                </li>
+            </ul>
+            <div style="display: flex;padding-right: 20px;">
+                <div style="align-self: center;color:#ffffff;">
+                  <a href="/logout" style="color: #ffffff;">登出</a>
+                  <a href="/majortable" style="color: #ffffff;">我的志愿表</a>
+                </div>
+              </div>
+            <form class="d-flex" action="/search" method="post">
+              <input class="form-control me-2" type="text" placeholder="查大学" name="searchkey">
+              <button class="btn btn-primary" type="submit" >搜</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    
+
+    <div style="font-size: 25px;margin-left: 22px;margin-top: 10px;">筛选</div>
+    <div style="border: 1px solid;width: 100%;margin: 0 auto;">
+        <form method="post"  action="/filter">
+            <input type="hidden" name="form_type" value="filter">
+            <div class="dropdown" style="margin-left: 10%;margin-top: 30px;float: left;">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">请选择省市</button>
+                <ul class="dropdown-menu">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check1" name="province" value="山东"
+                            checked>
+                        <label class="form-check-label" for="province-check1">山东省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check2" name="province" value="黑龙江"
+                            checked>
+                        <label class="form-check-label" for="province-check2">黑龙江省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check3" name="province" value="辽宁"
+                            checked>
+                        <label class="form-check-label" for="province-check3">辽宁省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check4" name="province" value="吉林"
+                            checked>
+                        <label class="form-check-label" for="province-check4">吉林省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check5" name="province" value="河北"
+                            checked>
+                        <label class="form-check-label" for="province-check5">河北省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check6" name="province" value="河南"
+                            checked>
+                        <label class="form-check-label" for="province-check6">河南省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check7" name="province" value="湖北"
+                            checked>
+                        <label class="form-check-label" for="province-check7">湖北省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check8" name="province" value="湖南"
+                            checked>
+                        <label class="form-check-label" for="province-check8">湖南省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check9" name="province" value="山西"
+                            checked>
+                        <label class="form-check-label" for="province-check9">山西省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check10" name="province"
+                            value="s陕西" checked>
+                        <label class="form-check-label" for="province-check10">陕西省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check11" name="province" value="安徽"
+                            checked>
+                        <label class="form-check-label" for="province-check11">安徽省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check12" name="province" value="浙江"
+                            checked>
+                        <label class="form-check-label" for="province-check12">浙江省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check13" name="province" value="江苏"
+                            checked>
+                        <label class="form-check-label" for="province-check13">江苏省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check14" name="province" value="福建"
+                            checked>
+                        <label class="form-check-label" for="province-check14">福建省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check15" name="province" value="广东"
+                            checked>
+                        <label class="form-check-label" for="province-check15">广东省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check16" name="province" value="海南"
+                            checked>
+                        <label class="form-check-label" for="province-check16">海南省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check17" name="province" value="四川"
+                            checked>
+                        <label class="form-check-label" for="province-check17">四川省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check18" name="province" value="云南"
+                            checked>
+                        <label class="form-check-label" for="province-check18">云南省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check19" name="province" value="贵州"
+                            checked>
+                        <label class="form-check-label" for="province-check19">贵州省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check20" name="province" value="青海"
+                            checked>
+                        <label class="form-check-label" for="province-check20">青海省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check21" name="province" value="甘肃"
+                            checked>
+                        <label class="form-check-label" for="province-check21">甘肃省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check22" name="province" value="江西"
+                            checked>
+                        <label class="form-check-label" for="province-check22">江西省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check23" name="province" value="台湾"
+                            checked>
+                        <label class="form-check-label" for="province-check23">台湾省</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check24" name="province"
+                            value="内蒙古" checked>
+                        <label class="form-check-label" for="province-check24">内蒙古自治区</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check25" name="province" value="宁夏"
+                            checked>
+                        <label class="form-check-label" for="province-check25">宁夏回族自治区</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check26" name="province" value="新疆"
+                            checked>
+                        <label class="form-check-label" for="province-check26">新疆维吾尔自治区</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check27" name="province" value="西藏"
+                            checked>
+                        <label class="form-check-label" for="province-check27">西藏自治区</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check28" name="province" value="广西"
+                            checked>
+                        <label class="form-check-label" for="province-check28">广西壮族自治区</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check29" name="province" value="北京"
+                            checked>
+                        <label class="form-check-label" for="province-check29">北京市</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check30" name="province" value="上海"
+                            checked>
+                        <label class="form-check-label" for="province-check30">上海市</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check31" name="province" value="天津"
+                            checked>
+                        <label class="form-check-label" for="province-check31">天津市</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check32" name="province" value="重庆"
+                            checked>
+                        <label class="form-check-label" for="province-check32">重庆市</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check33" name="province" value="香港"
+                            checked>
+                        <label class="form-check-label" for="province-check33">香港特别行政区</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="province-check34" name="province" value="澳门"
+                            checked>
+                        <label class="form-check-label" for="province-check34">澳门特别行政区</label>
+                    </div>
+                </ul>
+            </div>
+            <div class="dropdown" style="margin-left: 25%;margin-top: 30px; float: left;">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">请选择大学类别</button>
+                <ul class="dropdown-menu">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="college_type-check1" name="college_type"
+                            value="公办" checked>
+                        <label class="form-check-label" for="college_type-check1">公办</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="college_type-check2" name="college_type"
+                            value="民办" checked>
+                        <label class="form-check-label" for="college_type-check2">民办</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="college_type-check2" name="college_type"
+                            value="独立学院" checked>
+                        <label class="form-check-label" for="college_type-check2">独立学院</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="college_type-check3" name="college_type"
+                            value="中外合作" checked>
+                        <label class="form-check-label" for="college_type-check3">中外合作</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="college_type-check4" name="college_type"
+                            value="港澳台" checked>
+                        <label class="form-check-label" for="college_type-check4">内地与港澳台地区合作办学</label>
+                    </div>
+
+                </ul>
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <button type="button" class="btn btn-primary" style="width: 30%;margin-left:75%;margin-top: 30px;">
+                        请选择专业类别</button>
+                    <label class="col-xs-2 col-xs-offset-1 control-label text-center"></label>
+                    <div class="col-xs-6 dropdown">
+                        <input type="hidden" id="checkedList" name="category">
+                        <div id="checkedNameList" class="form-control text-center dropdown-toggle"
+                            data-toggle="dropdown" style="width: 50%;margin-left: 65%;">
+                        </div>
+                        <ul class="dropdown-menu col-xs-6" role="menu">
+                            <li data-index="01" class="dropdown-submenu">
+                                <label>工学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="02" class="dropdown-submenu">
+                                <label>哲学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="03" class="dropdown-submenu">
+                                <label>经济学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="04" class="dropdown-submenu">
+                                <label>法学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="05" class="dropdown-submenu">
+                                <label>教育学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="06" class="dropdown-submenu">
+                                <label>文学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="07" class="dropdown-submenu">
+                                <label>历史学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="08" class="dropdown-submenu">
+                                <label>理学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="09" class="dropdown-submenu">
+                                <label>农学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="10" class="dropdown-submenu">
+                                <label>医学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="11" class="dropdown-submenu">
+                                <label>管理学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                            <li data-index="12" class="dropdown-submenu">
+                                <label>艺术学</label>
+                                <ul class="dropdown-menu col-xs-11"></ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script src="{{url_for('static',filename = '菜单.js')}}"></script>
+            <div style="width: 100%;">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    style="margin-left:45%;">请输入位次范围</button>
+                <div style="margin-left: 37.5%;">
+                    <input type="text" name="wc1"> ~ <input type="text" name="wc2">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3" style="margin-left: 90%;">筛选</button>
+        </form>
+    </div>
+
+    <div style="font-size: 25px;margin-top: 20px;margin-left: 20px;">精准搜索</div>
+    <div class="container-fluid" style="width: 100%;border: 1px solid;height: 180px;">
+        <div style="width: 28%;margin-left: 32%;margin-top: 60px;">
+            <form class="d-flex" method="post" faction="/filter">
+                <input class="form-control me-2" type="text" placeholder="搜索大学" style="width: 45%;" name="school">
+                <input type="hidden" name="form_type" value="search">
+                <input class="form-control me-2" type="text" placeholder="搜索专业" style="width: 45%;" name="major">
+                <button class="btn btn-primary" type="submit" style="width: 80px;">搜索</button>
+            </form>
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <div class="container mt-3">
+        <table class="table table-bordered">
+            <tbody>
+                
+                <tr style="color: hsl(210, 2%, 34%);text-align: center;">
+                    <td>招生院校</td>
+                    <td>2023年招生计划</td>
+                    <td>历年</td>
+                    <td>2022</td>
+                    <td>2021</td>
+                    <td>操作</td>
+                </tr>
+                {% for line in data %}
+                <tr style="text-align: center;">
+                    <td style="font-weight: bold;font-size: 17px;">{{line[1]}}</td>
+                    <td>
+                        <span style="font-weight: bold;font-size: 18px;">{{line[3]}}</span>
+                        <br>
+                        {% if line[8] %}
+                        <span>招生人数{{line[4]}}   学费{{line[6]}}   学制{{line[5]}}  科目:{{line[17]}} 评级{{line[8]}}</span>
+                        {% else %}
+                        <span>招生人数{{line[4]}}   学费{{line[6]}}   学制{{line[5]}}  科目:{{line[17] }}</span>
+                        {% endif %}
+                        <br>
+                        <div class="mx-auto" style="width: 600px;">
+                            {{line[7]}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 50px;">
+                        分数
+                        <br>
+                        位次
+                        <br>
+                        人数
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 80px;">
+                        {% if line[14] %}
+                        {{line[13]}}分
+                        <br>
+                        {{line[14]}}名
+                        <br>
+                        {{line[12]}}人
+                        {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 80px;">
+                        {% if line[15] %}
+                        {{line[15]}}分
+                        <br>
+                        {{line[16]}}名
+                        {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <form action="/addmajor" method="post">
+                            <input type="hidden" name="schoolcode" value="{{line[0]}}">
+                            <input type="hidden" name="majorcode" value="{{line[2]}}">
+                            <button type="submit" onclick="myFunction()" class="btn btn-primary">填报</button>
+                        </form>
+                        
+                    </td>
+                </tr>
+                {% else %}
+                <p>暂无内容哦</p>
+                {% endfor %}
+                {% if data|length == 1000 %}
+                <p>您本次检索的结果数大于1000条,为了您的浏览体验,为您显示前1000条,如需查看更多请您缩小筛选条件</p>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+<!--     
+    <script>
+        // 保存滚动位置
+        function saveScrollPosition() {
+            var scrollY = window.scrollY || document.documentElement.scrollTop;
+            sessionStorage.setItem('scrollPosition', scrollY);
+        }
+
+        // 恢复滚动位置
+        function restoreScrollPosition() {
+            var scrollY = sessionStorage.getItem('scrollPosition');
+            if (scrollY !== null) {
+                window.scrollTo(0, scrollY);
+            }
+        }
+
+        // 在页面加载完成后恢复滚动位置
+        window.addEventListener('load', function() {
+            restoreScrollPosition();
+        });
+
+        // 在页面卸载前保存滚动位置（例如刷新页面或离开页面）
+        window.addEventListener('beforeunload', function() {
+            saveScrollPosition();
+        });
+    </script> -->
+</body>
+
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>找专业</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <style>
+    div >table{
+    background-color: rgb(255, 255, 255);
+    width: 1200px;
+    border: 1px solid rgba(12, 12, 12, 0);
+    margin-top: 50px;
+    margin-bottom: 60px;
+    box-shadow: 0 0 5px #898989;
+    }
+
+    #customers
+    {
+	  width:80%;
+	  border-collapse:collapse;
+    margin: 0 auto;
+    }
+    #customers td, #customers th 
+    {
+    width: 80%;
+	  font-size:2em;
+	  border:1px solid #0000001e;
+	  padding:3px 7px 2px 7px;
+    }
+    #customers th 
+    {
+    width: 80%;
+	  font-size:2.3em;
+	  text-align:left;
+	  padding-top:5px;
+	  padding-bottom:4px;
+	  background-color:#ffffff;
+	  color:#000000;
+    }
+    .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    }
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    right: 100%;
+    top: 0%;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    font-size: small;
+    }
+
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+    div.img {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #888888;
+    }
+
+    div.img:hover {
+    border: 1px solid #777;
+    }
+
+    div.img img {
+    width: 100%;
+    height: auto;
+    }
+
+    div.desc {
+    padding: 15px;
+    text-align: center;
+    }
+
+    * {
+    box-sizing: border-box;
+    }
+
+    .responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+    }
+
+    @media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+    }
+
+    @media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+    }
+
+    .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a href="/main">
+        <img src="{{url_for('static',filename = 'logo.png')}}" width="70px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/main">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommenduniv">查大学</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommendmajor">查专业</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/filter">模拟报志愿</a>
+            </li>
+        </ul>
+        <div style="display: flex;padding-right: 20px;">
+            <div style="align-self: center;color:#ffffff;">
+              <a href="/logout" style="color: #ffffff;">登出</a>
+              <a href="/majortable" style="color: #ffffff;">我的志愿表</a>
+            </div>
+          </div>
+        <form class="d-flex" action="/search" method="post">
+          <input class="form-control me-2" type="text" placeholder="查大学" name="searchkey">
+          <button class="btn btn-primary" type="submit" >搜</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+<div class="container mt-3",width=80%>
+    <table id="customers">
+      <tr>
+        <th>
+          推荐专业
+        </th>
+      </tr>
+
+      <tr>
+        {% for row in data %}
+        <td>
+          <div class="dropdown">
+            {{row[0]}}
+                <div class="dropdown-content">
+                  {% if row[1] %}
+                  <a href="/filter"> {{row[1]}} </a>
+                  {% endif %}
+                  {% if row[2] %}
+                  <a href="/filter">{{row[2]}}</a>
+                  {% endif %}
+                  {% if row[3] %}
+                  <a href="/filter">{{row[3]}}</a>
+                  {% endif %}
+                </div>
+          </div>
+          <span class="badge bg-secondary">HOT</span>
+          <button type="button" class="btn btn-primary" style="float: right;background-color: #4a4a4a;">了解更多>>></button>
+        </td>
+        
+      </tr>
+       {% endfor %}
+    </table>
+
+</div>
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="https://www.163.com/dy/article/IAE0U0PV0553UXAP.html">
+      <img src="{{url_for('static',filename = 'second.jpg')}}" alt="Trolltunga Norway" width="300" height="200">
+    </a>
+    <div class="desc">2024年或是高考最难年，3大改变要重视，部分学生或无缘本科</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="http://edu.people.com.cn/n1/2023/0626/c1006-40021552.html">
+      <img src="{{url_for('static',filename = 'first.jpg')}}" alt="Forest" height="400">
+    </a>
+    <div class="desc">最全汇总！31省份公布2023年高考分数线</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="https://www.shanghairanking.cn/rankings/bcur/2020">
+      <img src="{{url_for('static',filename = 'third.jpg')}}" alt="Northern Lights" width="600" height="400">
+    </a>
+    <div class="desc">2023年最新软科中国大学排名|中国最好大学排名</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="https://www.dxsbb.com/news/8414.html">
+      <img src="{{url_for('static',filename = 'fouth.webp')}}" alt="Mountains" width="600" height="400">
+    </a>
+    <div class="desc">大学理科专业有哪些-理科专业目录大全</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+
+</body>
+</html>

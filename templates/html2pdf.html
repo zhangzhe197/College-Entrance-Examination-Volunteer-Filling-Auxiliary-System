@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap5 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <style>
+        table,td,th{
+            border: 1px solid black;
+            text-align: center;
+        }
+        div >table{
+    background-color: rgb(255, 255, 255);
+    width: 1200px;
+    border: 1px solid rgba(12, 12, 12, 0);
+    box-shadow: 0 0 5px #898989;
+    margin: auto;
+    }
+    input[type=text_order] {
+    width: 30px;
+  padding: 1px 1px;
+  margin: 8px 0;
+  box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+    
+      <div class="container mt-3">
+        <table class="table table-bordered">
+            <tbody>
+                
+                <tr style="color: hsl(210, 2%, 34%);text-align: center;">
+                    <td>招生院校</td>
+                    <td>2023年招生计划</td>
+                    <td>历年</td>
+                    <td>2022</td>
+                    <td>2021</td>
+                </tr>
+                {% for line in data %}
+                <tr style="text-align: center;">
+                    <td style="font-weight: bold;font-size: 17px;">
+                        {{line[6]}}
+                        <br>
+                        {{line[2]}}
+                        <br>
+                        第{{line[18]}}志愿
+                    </td>
+                    <td>
+                        <span style="font-weight: bold;font-size: 18px;">{{line[7]}}   {{line[3]}}</span>
+                        <br>
+                        <span>招生人数{{line[8]}}   学费{{line[10]}}   学制{{line[9]}}  科目:{{line[17]}}</span>
+                        <br>
+                        <div class="mx-auto" style="width: 600px;">
+                            {{line[11]}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 50px;">
+                        分数
+                        <br>
+                        位次
+                        <br>
+                        人数
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 80px;">
+                        {% if line[14] %}
+                        {{line[13]}}分
+                        <br>
+                        {{line[14]}}名
+                        <br>
+                        {{line[12]}}人
+                        {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 80px;">
+                        {% if line[15] %}
+                        {{line[15]}}分
+                        <br>
+                        {{line[16]}}名
+                        {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                {% else %}
+                <p>暂无内容哦</p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        
+</body>

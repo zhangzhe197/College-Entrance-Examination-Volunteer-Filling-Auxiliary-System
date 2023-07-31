@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>我的志愿表</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <style>
+        table,td,th{
+            border: 1px solid black;
+            text-align: center;
+        }
+        div >table{
+    background-color: rgb(255, 255, 255);
+    width: 1200px;
+    border: 1px solid rgba(12, 12, 12, 0);
+    box-shadow: 0 0 5px #898989;
+    margin: auto;
+    }
+    input[type=text_order] {
+    width: 30px;
+  padding: 1px 1px;
+  margin: 8px 0;
+  box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a href="/main">
+        <img src="{{url_for('static',filename = 'logo.png')}}" width="70px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/main">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommenduniv">查大学</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommendmajor">查专业</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/filter">模拟报志愿</a>
+            </li>
+        </ul>
+        <div style="display: flex;padding-right: 20px;">
+            <div style="align-self: center;color:#ffffff;">
+              <a href="/logout" style="color: #ffffff;">登出</a>
+              <a href="/majortable" style="color: #ffffff;">我的志愿表</a>
+            </div>
+          </div>
+        <form class="d-flex" action="/search" method="post">
+          <input class="form-control me-2" type="text" placeholder="查大学" name="searchkey">
+          <button class="btn btn-primary" type="submit" >搜</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+      {% if data|length != 0 %}
+      <div style="font-size: 30px;margin-left: 10px;margin-top: 10px;">操作</div>
+      <div style="border:1px solid;width:100%;height: 100px;">
+          <form action="/majortable" method="post">
+                <input type="hidden" value="sort" name="attr">
+              <button class="btn btn-primary" type="submit" 
+                  style="float: left;margin-left:15% ;margin-top: 2.5%;">一键排序</button>
+          </form>
+          <form action="/majortable" method="post">
+            <input type="hidden" value="deleteall" name="attr">
+              <button class="btn btn-primary" type="submit"
+                  style="float: left;margin-left: 25%;margin-top: 2.5%;background-color: hsl(0, 93%, 49%);">全部清空</button>
+          </form>
+          <form action="/majortable" method="post">
+            <input type="hidden" value="save" name="attr">
+              <button class="btn btn-primary" type="submit"
+                  style="float: left;margin-left: 25%;margin-top: 2.5%;">导出为PDF</button>
+          </form>
+      </div>
+      {% endif %}
+      <div class="container mt-3">
+        <table class="table table-bordered">
+            <tbody>
+                
+                <tr style="color: hsl(210, 2%, 34%);text-align: center;">
+                    <td>招生院校</td>
+                    <td>2023年招生计划</td>
+                    <td>历年</td>
+                    <td>2022</td>
+                    <td>2021</td>
+                    <td>操作</td>
+                </tr>
+                {% for line in data %}
+                <tr style="text-align: center;">
+                    <td style="font-weight: bold;font-size: 17px;">
+                        {{line[6]}}
+                        <br>
+                        {{line[2]}}
+                        <br>
+                        第{{line[18]}}志愿
+                    </td>
+                    <td>
+                        <span style="font-weight: bold;font-size: 18px;">{{line[7]}}   {{line[3]}}</span>
+                        <br>
+                        <span>招生人数{{line[8]}}   学费{{line[10]}}   学制{{line[9]}}  科目:{{line[17]}}</span>
+                        <br>
+                        <div class="mx-auto" style="width: 600px;">
+                            {{line[11]}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 50px;">
+                        分数
+                        <br>
+                        位次
+                        <br>
+                        人数
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 80px;">
+                        {% if line[14] %}
+                        {{line[13]}}分
+                        <br>
+                        {{line[14]}}名
+                        <br>
+                        {{line[12]}}人
+                        {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mx-auto" style="width: 80px;">
+                        {% if line[15] %}
+                        {{line[15]}}分
+                        <br>
+                        {{line[16]}}名
+                        {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <form action="/majortable" method="post">
+                            <input type="hidden" value="{{line[2]}}" name="schoolcode">
+                            <input type="hidden" value="{{line[3]}}" name="majorcode">
+                            <input type="hidden" value="delete" name="attr">
+                            <button type="submit" class="btn btn-primary" >
+                                删除
+                            </button>
+                        </form>
+                        <form action="/majortable" method="post">
+                            <input type="hidden" value="{{line[2]}}" name="schoolcode">
+                            <input type="hidden" value="{{line[3]}}" name="majorcode">
+                            <input type="hidden" value="adjust" name="attr">
+                            <input type="hidden" id="fname" name="fname" value="{{line[18] - 1}}">
+                            <button type="submit" class="btn btn-primary" >
+                                上移
+                            </button>
+                        </form>
+                        <form action="/majortable" method="post" >
+                            <input type="hidden" value="{{line[2]}}" name="schoolcode">
+                            <input type="hidden" value="{{line[3]}}" name="majorcode">
+                            <input type="hidden" value="adjust" name="attr">
+                            <input type="hidden" id="fname" name="fname" value="{{line[18] + 1}}">
+                            <button type="submit" class="btn btn-primary" >
+                                下移
+                            </button>
+                        </form>
+                       <form action="/majortable" method="post">
+                        调至
+                            <input type="text_order" id="fname" name="fname">
+                            <input type="hidden" value="{{line[2]}}" name="schoolcode">
+                            <input type="hidden" value="{{line[3]}}" name="majorcode">
+                            <input type="hidden" value="adjust" name="attr">
+                            <button type="submit" class="btn btn-primary" >
+                            确定
+                            </button>
+                        
+
+                        </form>
+
+               
+                    </td>
+                </tr>
+                {% else %}
+                <p>暂无内容哦</p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        
+    <script>
+        // 保存滚动位置
+        function saveScrollPosition() {
+            var scrollY = window.scrollY || document.documentElement.scrollTop;
+            sessionStorage.setItem('scrollPosition', scrollY);
+        }
+
+        // 恢复滚动位置
+        function restoreScrollPosition() {
+            var scrollY = sessionStorage.getItem('scrollPosition');
+            if (scrollY !== null) {
+                window.scrollTo(0, scrollY);
+            }
+        }
+
+        // 在页面加载完成后恢复滚动位置
+        window.addEventListener('load', function() {
+            restoreScrollPosition();
+        });
+
+        // 在页面卸载前保存滚动位置（例如刷新页面或离开页面）
+        window.addEventListener('beforeunload', function() {
+            saveScrollPosition();
+        });
+    </script>
+</body>

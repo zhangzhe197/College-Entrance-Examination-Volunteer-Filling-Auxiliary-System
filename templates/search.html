@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>搜索结果</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <style>
+    
+    .grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 15px;
+  background-color: #d4d4d4;
+  padding: 10px;
+  }
+
+  .grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px 20px;
+  font-size: 30px;
+  }
+
+  .shadow{
+    box-shadow: 0 0 5px #898989;
+    border: 1px solid rgba(12, 12, 12, 0);
+    opacity: 0.7;
+  }
+
+  a:link {color:#000000;}
+  a:visited {color:#434f8d;}
+  a:hover {color:#44408e;}
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a href="/main">
+        <img src="{{url_for('static',filename = 'logo.png')}}" width="70px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/main">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommenduniv">查大学</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommendmajor">查专业</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/filter">模拟报志愿</a>
+            </li>
+        </ul>
+        <div style="display: flex;padding-right: 20px;">
+            <div style="align-self: center;color:#ffffff;">
+              <a href="/logout" style="color: #ffffff;">登出</a>
+              <a href="/majortable" style="color: #ffffff;">我的志愿表</a>
+            </div>
+          </div>
+        <form class="d-flex" action="/search" method="post">
+          <input class="form-control me-2" type="text" placeholder="查大学" name="searchkey">
+          <button class="btn btn-primary" type="submit" >搜</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+
+      <div class="grid-container">
+        {% for row in searchdata %}
+        <div class="shadow">
+          <h style="font-size: 75px;">
+            <a href="{{url_for('schooldetail',name=row[0],pageloc=1)}}" style="text-decoration: none;">{{row[0]}}</a>
+          </h>
+          <p style="font-size: 18px;">
+            {{row[1]}}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+</body>
+</html>
