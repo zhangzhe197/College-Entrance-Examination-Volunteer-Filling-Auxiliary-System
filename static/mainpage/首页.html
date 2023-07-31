@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap5 实例</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="font-size: 19px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">查大学</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">查专业</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">智能填志愿</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="查大学、查专业">
+                    <button class="btn btn-primary" type="button">搜</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <br />
+</body>
+
+
+<!-- 轮播 -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel" style="width: 900px;height: 600px;margin: auto;">
+
+    <!-- 指示符 -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- 轮播图片 -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img decoding=" async" src="首页2.JPG" class="d-block" style="width:100%;height: 600px;">
+        </div>
+        <div class="carousel-item">
+            <img decoding=" async" src="首页3.JPG" class="d-block" style="width:100%;height:600px;">
+        </div>
+        <div class="carousel-item">
+            <img decoding=" async" src="首页1.JPG" class="d-block" style="width:100%;height:600px;">
+        </div>
+    </div>
+
+    <!-- 左右切换按钮 -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+<style>
+    h3 {
+        color: rgb(14, 107, 194);
+    }
+</style>
+<div class="container mt-3">
+    <h3>头条！高考填报必看！</h3>
+    <div class="list-group">
+
+        <a href="https://www.sdzk.cn/NewsInfo.aspx?NewsID=6210" class="list-group-item list-group-item-action"
+            target="_blank">山东省2023年夏季高考各类别分数线</a>
+        <a href="https://www.sdzk.cn/NewsInfo.aspx?NewsID=6264" class="list-group-item list-group-item-action"
+            target="_blank">山东省2023年普通高校招生录取结果查询方式和查询时间公告</a>
+        <a href="https://www.sdzk.cn/NewsInfo.aspx?NewsID=6233" class="list-group-item list-group-item-action"
+            target="_blank">普通高考平行志愿填报指导动漫（2023年版）</a>
+        <a href="https://www.sdzk.cn/NewsInfo.aspx?NewsID=6229" class="list-group-item list-group-item-action"
+            target="_blank">山东省普通高校招生志愿填报百问百答（2023版）</a>
+        <a href="https://www.sdzk.cn/NewsInfo.aspx?NewsID=6237" class="list-group-item list-group-item-action"
+            target="_blank">普通类常规批志愿是如何设置的？</a>
+        <a href="https://www.sdzk.cn/NewsInfo.aspx?NewsID=6234" class="list-group-item list-group-item-action"
+            target="_blank">2023年普通高校招生志愿填报系统使用说明</a>
+
+    </div>
+</div>
+<style>
+    .class_name {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+</style>
+
+<body>
+    <div class="class_name" style="margin-top: 10px;">
+        <span class="class1"
+            style="font-size: 28px;padding-left: 170px;color: rgb(14, 107, 194);flex-wrap: nowrap;">热门本科专业</span>
+        <span class="class2" style="font-size: 28px;padding-left: 530px;color: rgb(14, 107, 194);">热门专科专业</span>
+    </div>
+    <div style="height: 430px;">
+        <div class="container mt-3" style="display: inline-block;width: 500px;margin-left: 160px;">
+
+            <table class="table table-bordered" style="width: 490px;">
+
+                <tbody>
+                    <tr>
+                        <td rowspan="2" style="height:400px;width: 150px;">
+                            <br>
+                            <br>
+                            <span style="font-size: 19px;padding-left:20px ;font-weight: bold;">计算机类专业</span>
+                            <br>
+                            <br>
+                            <span
+                                style="font-size: 15px;padding-left: 30px;font-weight: lighter;color: rgb(114, 116, 117);">电子科技大学</span>
+                            <br>
+                            <br>
+                            <br>
+                            <img src="img/计算.png" style="height: 160px;width: 150px;">
+                        </td>
+                        <td style="width: 160px;height: 200px;">
+                            <span style="font-size: 19px;padding-left:25px ;font-weight: bold;">金融类专业</span>
+
+                            <span
+                                style="font-size: 15px;padding-left: 26px;font-weight: lighter;color: rgb(114, 116, 117);">中央财经大学</span>
+                            <br>
+                            <br>
+                            <img src="img/财经.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+                        <td>
+                            <span style="font-size: 19px;padding-left:25px ;font-weight: bold;">医学类专业</span>
+
+                            <span
+                                style="font-size: 15px;padding-left: 40px;font-weight: lighter;color: rgb(114, 116, 117);">复旦大学</span>
+                            <br>
+                            <br>
+                            <img src="img/医学.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 160px;height: 200px;">
+                            <span style="font-size: 19px;padding-left:25px ;font-weight: bold;">师范类专业</span>
+
+                            <span
+                                style="font-size: 15px;padding-left: 26px;font-weight: lighter;color: rgb(114, 116, 117);">北京师范大学</span>
+                            <br>
+                            <br>
+                            <img src="img/师范.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+                        <td>
+                            <span style="font-size: 19px;padding-left:25px ;font-weight: bold;">软件类专业</span>
+
+                            <span
+                                style="font-size: 15px;padding-left: 26px;font-weight: lighter;color: rgb(114, 116, 117);">上海交通大学</span>
+                            <br>
+                            <br>
+
+                            <img src="img/软件.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container mt-3" style="display: inline-block;width: 500px;margin-left: 190px;">
+
+            <table class="table table-bordered" style="width: 490px;">
+
+                <tbody>
+                    <tr>
+                        <td rowspan="2" style="height:400px;width: 150px;">
+                            <br>
+                            <br>
+                            <span style="font-size: 19px;padding-left:20px ;font-weight: bold;">医药类专业</span>
+                            <br>
+                            <br>
+                            <span
+                                style="font-size: 15px;padding-left: 0px;font-weight: lighter;color: rgb(114, 116, 117);">天津医学高等专科学校</span>
+                            <br>
+                            <br>
+                            <br>
+                            <img src="img/医生.png" style="height: 160px;width: 150px;">
+                        </td>
+                        <td style="width: 160px;height: 200px;">
+                            <span style="font-size: 19px;padding-left:25px ;font-weight: bold;">建筑类专业</span>
+                            <br>
+                            <span
+                                style="font-size: 14px;padding-left: 0px;font-weight: lighter;color: rgb(114, 116, 117);">重庆工程职业技术学院</span>
+                            <br>
+                            <br>
+                            <img src="img/建筑.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+                        <td>
+                            <span style="font-size: 19px;padding-left:5px ;font-weight: bold;">电子商务类专业</span>
+
+                            <span
+                                style="font-size: 14px;padding-left: 0px;font-weight: lighter;color: rgb(114, 116, 117);">长沙民政职业技术学院</span>
+                            <br>
+                            <br>
+                            <img src="img/商务.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 160px;height: 200px;">
+                            <span style="font-size: 19px;padding-left:25px ;font-weight: bold;">物流类专业</span>
+                            <br>
+                            <span
+                                style="font-size: 14px;padding-left: 0px;font-weight: lighter;color: rgb(114, 116, 117);">陕西工业职业技术学院</span>
+                            <br>
+                            <br>
+                            <img src="img/物流.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+                        <td>
+                            <span style="font-size: 19px;padding-left:10px ;font-weight: bold;">计算机类专业</span>
+                            <br>
+                            <span
+                                style="font-size: 14px;padding-left: 0px;font-weight: lighter;color: rgb(114, 116, 117);">北京电子科技职业学院</span>
+                            <br>
+                            <br>
+
+                            <img src="img/计算机.png" style="height: 100px;width: 100px;margin-left: 25px;">
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="container mt-3" style="margin-left: 155px;">
+
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="class1"
+                            style="font-size: 30px;padding-left: 0px;color: rgb(14, 107, 194);">省内热门高校</span>
+                        <a href=""
+                            style="text-decoration: none;color: #686464;padding-left: 10px;font-size: 18px;">点击这里查看更多</a>
+
+                    </td>
+                    <td>
+                        <span class="class2"
+                            style="font-size: 30px;padding-left: 0px;color: rgb(14, 107, 194);">省外热门高校</span>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="山大.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">山东大学</span>
+                        <span class="badge bg-secondary">985</span>
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+                    <td>
+                        <img src="西安交通.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">西安交通大学</span>
+                        <span class="badge bg-secondary">985</span>
+                        <span class="badge bg-secondary">211</span>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="中海洋.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">中国海洋大学</span>
+                        <span class="badge bg-secondary">985</span>
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+                    <td>
+                        <img src="华科.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">华中科技大学</span>
+                        <span class="badge bg-secondary">985</span>
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="中石大.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">中国石油大学（华东）</span>
+
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+                    <td>
+                        <img src="吉林.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">吉林大学</span>
+                        <span class="badge bg-secondary">985</span>
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="山师.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">山东师范大学</span>
+
+                    </td>
+                    <td><img src="上财.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">上海财经大学</span>
+
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="青大.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">青岛大学</span>
+
+                    </td>
+                    <td>
+                        <img src="苏州.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">苏州大学</span>
+
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="山科.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">山东科技大学</span>
+
+                    </td>
+                    <td>
+                        <img src="政法.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">中国政法大学</span>
+
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="济南.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">济南大学</span>
+
+                    </td>
+                    <td>
+                        <img src="武理.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">武汉理工大学</span>
+
+                        <span class="badge bg-secondary">211</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="青科.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">青岛科技大学</span>
+
+                    </td>
+                    <td>
+                        <img src="杭州.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">杭州电子科技大学</span>
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img src="烟大.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">烟台大学</span>
+
+                    </td>
+                    <td>
+
+                        <img src="湘潭.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">湘潭大学</span>
+
+
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="济宁学院.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">济宁学院</span>
+
+                    </td>
+                    <td>
+                        <img src="燕山.jpg" style="height: 50px;width: 50px;">
+                        <span style="font-size: 22px;">燕山大学</span>
+
+
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 25px;height: 50px;">
+        <span
+            style="padding-left: 170px;font-family: STXingkai;font-size: 40px;color:rgb(14, 107, 194);">祝愿所有使用本站的学子，永远盛大闪耀，拉弓射月，无惧岁月与风霜！</span>
+    </div>
+</body>
+
+</html>

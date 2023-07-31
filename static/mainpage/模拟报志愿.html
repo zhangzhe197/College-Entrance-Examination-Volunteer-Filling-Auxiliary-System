@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>模拟报志愿</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link href="菜单.css" rel="stylesheet" />
+    <link href="./bootstrap.css" rel="stylesheet" />
+    <script src="./jquery-3.7.0.min.js"></script>
+    <script src="./bootstrap.bundle.js"></script>
+</head>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="font-size: 19px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">查大学</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">查专业</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">智能填志愿</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="text" placeholder="查大学、查专业">
+                <button class="btn btn-primary" type="button">搜</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<br />
+</body>
+
+
+<body>
+    <form>
+        <div class="dropdown" style="margin-left: 200px;margin-top: 30px;float: left;">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">请选择省市</button>
+            <ul class="dropdown-menu">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check1">山东省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check2" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check2">黑龙江省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check3" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check3">辽宁省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check4" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check4">吉林省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check5" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check5">河北省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check6" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check6">河南省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check7" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check7">湖北省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check8" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check8">湖南省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check9" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check9">山西省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check10" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check10">陕西省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check11" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check11">安徽省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check12" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check12">浙江省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check13" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check13">江苏省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check14" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check14">福建省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check15" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check15">广东省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check16" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check16">海南省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check17" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check17">四川省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check18" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check18">云南省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check19" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check19">贵州省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check20" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check20">青海省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check21" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check21">甘肃省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check22" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check22">江西省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check23" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check23">台湾省</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check24" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check24">内蒙古自治区</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check25" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check25">宁夏回族自治区</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check26" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check26">新疆维吾尔自治区</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check27" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check27">西藏自治区</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check28" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check28">广西壮族自治区</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check29" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check29">北京市</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check30" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check30">上海市</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check31" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check31">天津市</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check32" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check32">重庆市</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check33" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check33">香港特别行政区</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check34" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="check34">澳门特别行政区</label>
+                </div>
+            </ul>
+        </div>
+        <div class="dropdown" style="margin-left: 300px;margin-top: 30px; float: left;">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">请选择大学类别</button>
+            <ul class="dropdown-menu">
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"
+                        checked>
+                    <label class="form-check-label" for="option1">公办</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something"
+                        checked>
+                    <label class="form-check-label" for="option2">民办</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something"
+                        checked>
+                    <label class="form-check-label" for="option3">中外合作</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check4" name="option4" value="something"
+                        checked>
+                    <label class="form-check-label" for="option4">内地与港澳台地区合作办学</label>
+                </div>
+
+            </ul>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <button type="button" class="btn btn-primary" style="width: 170px;margin-left: 300px;margin-top: 30px;">
+                    请选择专业类别</button>
+                <label class="col-xs-2 col-xs-offset-1 control-label text-center"></label>
+                <div class="col-xs-6 dropdown">
+                    <input type="hidden" id="checkedList">
+                    <div id="checkedNameList" class="form-control text-center dropdown-toggle" data-toggle="dropdown"
+                        style="width: 300px;margin-left: 220px;">
+                    </div>
+                    <ul class="dropdown-menu col-xs-6" role="menu">
+                        <li data-index="01" class="dropdown-submenu">
+                            <label>工学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="02" class="dropdown-submenu">
+                            <label>哲学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="03" class="dropdown-submenu">
+                            <label>经济学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="04" class="dropdown-submenu">
+                            <label>法学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="05" class="dropdown-submenu">
+                            <label>教育学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="06" class="dropdown-submenu">
+                            <label>文学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="07" class="dropdown-submenu">
+                            <label>历史学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="08" class="dropdown-submenu">
+                            <label>理学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="09" class="dropdown-submenu">
+                            <label>农学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="10" class="dropdown-submenu">
+                            <label>医学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="11" class="dropdown-submenu">
+                            <label>管理学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                        <li data-index="12" class="dropdown-submenu">
+                            <label>艺术学</label>
+                            <ul class="dropdown-menu col-xs-11"></ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="菜单.js"></script>
+        <button type="submit" class="btn btn-primary mt-3" style="margin-left: 1500px;">Submit</button>
+    </form>
+
+    <hr />
+    <div class="container-fluid" style="margin-left: 600px;margin-top: 10px;float: left;">
+        <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="搜索大学" style="width: 180px;">
+            <input class="form-control me-2" type="text" placeholder="搜索专业" style="width: 180px;">
+            <button class="btn btn-primary" type="button">搜</button>
+        </form>
+
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <div class="container mt-3">
+        <table class="table table-bordered">
+            <tbody>
+                <tr style="color: hsl(210, 2%, 34%);text-align: center;">
+                    <td>招生院校</td>
+                    <td>2023年招生计划</td>
+                    <td>历年</td>
+                    <td>2022</td>
+                    <td>2021</td>
+                    <td>操作</td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td style="font-weight: bold;font-size: 17px;">兰州大学</td>
+                    <td>
+                        <span style="font-weight: bold;font-size: 18px;">电子信息类</span>
+                        <br>
+                        <span>招生人数8 学费5800 学制4 科目:物理</span>
+                        <br>
+                        <div class="mx-auto" style="width: 630px;height: 100px;">
+                            技术科学试验班(拔尖学生培养基地)(微电子科学与工程、智能科学与技术(卓越班;智能系统方向)、电子信息科学与技术、通信工程、电气工程及其自动化、生物医学工程、光电信息科学与工程、信息安全、电子科学与技术、材料化学、材料物理、计算机科学与技术、航空航天类、保密技术、数据科学与大数据技术)
+                        </div>
+                    </td>
+                    <td>
+                        分数
+                        <br>
+                        位次
+                        <br>
+                        人数
+                    </td>
+                    <td>
+                        605分
+                        <br>
+                        13072名
+                        <br>
+                        9人
+                    </td>
+                    <td>
+                        608分
+                        <br>
+                        12930名
+                        <br>
+                        8人
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary">填报</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+
+</html>

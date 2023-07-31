@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>模拟报志愿</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link href="菜单.css" rel="stylesheet" />
+    <link href="./bootstrap.css" rel="stylesheet" />
+    <script src="./jquery-3.7.0.min.js"></script>
+    <script src="./bootstrap.bundle.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <button type="button" class="btn btn-primary" style="width: 170px;margin-left: 300px;margin-top: 30px;">
+                请选择专业类别</button>
+            <div class="col-xs-6 dropdown">
+                <input type="hidden" id="checkedList">
+                <div id="checkedNameList" class="form-control text-center dropdown-toggle" data-toggle="dropdown">
+                </div>
+                <ul class="dropdown-menu col-xs-6" role="menu">
+                    <li data-index="01" class="dropdown-submenu">
+                        <label>工学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="02" class="dropdown-submenu">
+                        <label>哲学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="03" class="dropdown-submenu">
+                        <label>经济学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="04" class="dropdown-submenu">
+                        <label>法学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="05" class="dropdown-submenu">
+                        <label>教育学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="06" class="dropdown-submenu">
+                        <label>文学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="07" class="dropdown-submenu">
+                        <label>历史学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="08" class="dropdown-submenu">
+                        <label>理学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="09" class="dropdown-submenu">
+                        <label>农学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="10" class="dropdown-submenu">
+                        <label>医学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="11" class="dropdown-submenu">
+                        <label>管理学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                    <li data-index="12" class="dropdown-submenu">
+                        <label>艺术学</label>
+                        <ul class="dropdown-menu col-xs-11"></ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="菜单.js"></script>
+    <button type="submit" class="btn btn-primary mt-3" style="margin-left: 1500px;">Submit</button>
+
+</body>
